@@ -25,7 +25,6 @@
    - [5.7 - TRA-07: Payment Page Tamper-Detection Review Frequency (Req. 11.6.1)](#57-tra-07-payment-page-tamper-detection-review-frequency-req-1161)
    - [5.8 - TRA-08: Incident Response Training Frequency (Req. 12.10.4.1)](#58-tra-08-incident-response-training-frequency-req-121041)
 6. [Governance, Review Cycle & Sign-Off](#6-governance-review-cycle--sign-off)
-7. [Blank Template (Copy/Paste)](#7-blank-template-copypaste)
 
 ---
 
