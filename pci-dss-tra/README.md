@@ -2,6 +2,7 @@
 # PCI DSS v4.0.1 - Targeted Risk Analysis (TRA) Template & Methodology
 
 **Author:** Victor Eboh - GRC Lead, Information Security & Compliance
+
 **Purpose:** A reusable, audit-ready Targeted Risk Analysis framework built to PCI DSS v4.0.1 Requirement 12.3.1, covering the eight control domains where PCI DSS grants an entity flexibility to self-define activity frequency.
 
 > **Note on this artifact:** This is an original template built from professional GRC practice. All entity names, environments, findings, and risk ratings below are fictional (**"Meridian Retail Co."**) and provided to demonstrate methodology only - no client, employer, or real-environment data is used anywhere in this document.
