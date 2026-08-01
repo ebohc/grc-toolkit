@@ -1,4 +1,4 @@
-[PCI-DSS-v4.0.1-Targeted-Risk-Analysis-Template_1.md](https://github.com/user-attachments/files/30620651/PCI-DSS-v4.0.1-Targeted-Risk-Analysis-Template_1.md)
+
 # PCI DSS v4.0.1 - Targeted Risk Analysis (TRA) Template & Methodology
 
 **Author:** Victor Eboh - GRC Lead, Information Security & Compliance
