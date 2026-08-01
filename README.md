@@ -1,14 +1,14 @@
 # GRC Toolkit
 
-Original governance, risk, and compliance artifacts — built from hands-on
+Original governance, risk, and compliance artifacts - built from hands-on
 GRC practice across SOC 2, ISO 27001, and PCI DSS v4.0.1 compliance programs.
 
-All content is genericized and built from scratch for demonstration —
+All content is genericized and built from scratch for demonstration -
 no client, employer, or real-environment data.
 
 ## Contents
 
-- [`pci-dss-tra/`](./pci-dss-tra) — PCI DSS v4.0.1 Targeted Risk Analysis
+- [`pci-dss-tra/`](./pci-dss-tra) - PCI DSS v4.0.1 Targeted Risk Analysis
   methodology and template, covering all 8 requirement domains where
   activity frequency is self-defined.
 
