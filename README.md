@@ -22,6 +22,10 @@ no client, employer, or real-environment data.
 - [`cpcsc-compliance-template`](https://github.com/ebohc/cpcsc-compliance-template) -
   CPCSC vs. CMMC cross-border compliance workbook, covering ITSP.10.171
   control families, gap assessment, and Level 1 checklist.
+- [`pci-customized-approach/`](./pci-customized-approach) — PCI DSS v4.0.1 Customized
+  Approach playbook, covering eligibility, the required documentation package, a
+  fully worked passwordless authentication example, and why QSAs reject proposed
+  customized controls.
 
 ### Audit & Evidence
 - [`soc2-audit-prep`](https://github.com/ebohc/soc2-audit-prep) -
