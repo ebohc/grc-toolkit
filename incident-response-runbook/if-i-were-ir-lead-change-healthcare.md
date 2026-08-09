@@ -4,6 +4,8 @@ I wanted to write this one differently. Most incident response content is either
 
 Where the actual company made a call, I've said so. Where I'd have done something differently, I've said that too, and why.
 
+**Quick version, before the hour-by-hour detail:** declare the incident immediately instead of waiting for certainty, contain in a targeted way before considering a full shutdown, preserve evidence before fixing anything, slow down specifically for the ransom decision, and treat post-incident as its own multi-month phase rather than a wrap-up step. Everything below is the reasoning behind each of those calls, in the order they'd actually happen.
+
 ## Hour 0-1: Just declare it
 
 06:00. EDR and SIEM are showing weird data movement and what looks like ransom-note files getting created on a subnet tied to claims processing.
@@ -27,16 +29,25 @@ One thing I wouldn't do: wait to loop Legal in until I have a clearer picture. T
 
 ## Hour 4-24: Containment, and not the blunt version first
 
+### Contain in a targeted way first
+
 8. I don't take everything offline right away. First move is targeted: kill the compromised accounts, isolate the specific hosts and subnet showing signs of compromise, block the known bad IPs at the perimeter. Shutting the whole company down is sometimes the right call, but it's a last resort, not a first instinct, because of what it costs.
 9. I'd set a checkpoint: if targeted containment isn't visibly working within a few hours, escalate to something broader. The real company went straight to a full shutdown the day they found it, which is understandable given nine days of undetected access and a lot of uncertainty about scope, but it's also why claims processing stopped for something like 900,000 physicians, 33,000 pharmacies, and 5,500 hospitals at once. I'd want to know we'd actually tried the targeted route first, and I'd want Business Continuity in the room before pulling that trigger, not after.
 10. Speaking of which, once containment scope goes beyond a single system, I'm bringing in Business Continuity immediately. "Isolate the environment" sounds like a pure security call, but here it meant an entire sector couldn't bill or get paid. That needs a business sign-off, not just a security one.
+
+### Preserve evidence before fixing anything
+
 11. Before anyone starts fixing things, I preserve evidence: memory captures, disk images, logs, proper chain of custody. I'd rather lose an hour to imaging than lose the ability to say for certain how they got in.
 
 ## Day 1-3: Root cause, and the ransom question
 
+### Root cause
+
 12. Root cause work runs in parallel with containment, not after it. In the real case it came down fast once people looked in the right place: one compromised account on a Citrix portal with no MFA. That's a strong argument for bringing in outside forensics help on day one instead of waiting to see if the internal team can chase it down alone.
 
-13. The ransom decision is the one I'd actually want to slow down for.
+### The ransom decision
+
+13. This is the one I'd actually want to slow down for.
 
 I'd get Legal, the exec sponsor, outside counsel, and a ransomware negotiator (if we have access to one) in a room before responding to the attacker at all, even to say no.
 
@@ -74,11 +85,11 @@ Either way, that call gets made by the exec sponsor and Legal together, on the r
 
 ## If someone pushed back on me over coffee
 
-Three calls from this I'd actually defend if someone challenged them:
+Three calls I'd actually defend if someone challenged them:
 
-1. **Declare before you're sure.** Being wrong early costs almost nothing. Waiting for certainty costs you the dwell-time window you can never get back.
-2. **Try targeted containment before shutting everything down.** Full shutdown is sometimes right, but it should be a deliberate escalation with the business in the room, not the default reaction.
-3. **Ransom payment isn't a data-deletion guarantee. Don't treat it like one.** This incident is about as clean a real-world example of that as you'll find.
+1. **Declare before you're sure.** Being wrong early costs almost nothing. Waiting for certainty costs you dwell time you never get back.
+2. **Try targeted containment before shutting everything down.** Full shutdown is sometimes right, but it should be a deliberate escalation, not the default reaction.
+3. **Ransom payment isn't a data-deletion guarantee.** This incident is about as clean a real-world example of that as you'll find.
 
 ---
 
