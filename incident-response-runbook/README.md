@@ -8,10 +8,10 @@ Built for GRC folks, security analysts, and auditors who want something they can
 
 | File | What it is |
 |---|---|
-| `incident-response-playbook.xlsx` | The template itself. RACI matrix, NIST 800-61 checklist, the Change Healthcare timeline with sources, a detection log, a containment/eradication/recovery log, post-incident review, and a control mapping tab (NIST CSF 2.0, ISO 27001, HIPAA, SOC 2) |
-| `incident-response-playbook-change-healthcare.md` | Article walking through the incident phase by phase against NIST 800-61 |
-| `if-i-were-ir-lead-change-healthcare.md` | A different angle. Written as if I were actually running the response, hour by hour, including how I'd think through the ransom decision |
-| `how-to-write-a-post-incident-report.md` | A general, reusable process for writing the formal report after any incident, not just this one |
+| [`incident-response-playbook.xlsx`](./incident-response-playbook.xlsx) | The template itself. RACI matrix, NIST 800-61 checklist, the Change Healthcare timeline with sources, a detection log, a containment/eradication/recovery log, post-incident review, and a control mapping tab (NIST CSF 2.0, ISO 27001, HIPAA, SOC 2) |
+| [`incident-response-playbook-change-healthcare.md`](./incident-response-playbook-change-healthcare.md) | Article walking through the incident phase by phase against NIST 800-61 |
+| [`if-i-were-ir-lead-change-healthcare.md`](./if-i-were-ir-lead-change-healthcare.md) | A different angle. Written as if I were actually running the response, hour by hour, including how I'd think through the ransom decision |
+| [`how-to-write-a-post-incident-report.md`](./how-to-write-a-post-incident-report.md) | A general, reusable process for writing the formal report after any incident, not just this one |
 
 ## How to use it
 
