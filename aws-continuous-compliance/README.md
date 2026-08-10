@@ -96,20 +96,20 @@ rules.
 
 | Config Rule | What It Checks | CIS AWS Foundations v3.0 | NIST CSF 2.0 | PCI DSS v4.0.1 |
 |---|---|---|---|---|
-| `root-account-mfa-enabled` | Root account has MFA enabled | Section 1 (IAM) | PR.AA | Req. 8.4 |
-| `iam-user-mfa-enabled` | IAM users have MFA enabled | Section 1 (IAM) | PR.AA | Req. 8.4 |
-| `iam-password-policy` | Account password policy meets minimum strength requirements | Section 1 (IAM) | PR.AA | Req. 8.3 |
-| `access-keys-rotated` | IAM access keys rotated within a defined window | Section 1 (IAM) | PR.AA | Req. 8.6 |
-| `s3-bucket-public-read-prohibited` | S3 buckets don't allow public read access | Section 2 (Storage) | PR.DS | Req. 3, Req. 9 |
-| `s3-bucket-public-write-prohibited` | S3 buckets don't allow public write access | Section 2 (Storage) | PR.DS | Req. 3, Req. 9 |
-| `s3-bucket-server-side-encryption-enabled` | S3 buckets encrypt data at rest | Section 2 (Storage) | PR.DS | Req. 3.5 |
-| `encrypted-volumes` | EBS volumes are encrypted | Section 2 (Storage) | PR.DS | Req. 3.5 |
-| `rds-storage-encrypted` | RDS instances encrypt storage | Section 2 (Storage) | PR.DS | Req. 3.5 |
-| `cloudtrail-enabled` | CloudTrail is enabled account-wide | Section 3 (Logging) | PR.PS, DE.CM | Req. 10 |
-| `cloud-trail-log-file-validation-enabled` | CloudTrail log integrity validation is on | Section 3 (Logging) | PR.PS | Req. 10.5 |
-| `vpc-flow-logs-enabled` | VPC Flow Logs are capturing network traffic | Section 5 (Networking) | DE.CM | Req. 10 |
-| `restricted-ssh` | No security group allows unrestricted inbound SSH | Section 5 (Networking) | PR.AA, PR.IR | Req. 1 |
-| `guardduty-enabled-centralized` | GuardDuty is enabled across the org | Section 4 (Monitoring) | DE.CM | Req. 11.5 |
+| [`root-account-mfa-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/root-account-mfa-enabled.html) | Root account has MFA enabled | Section 1 (IAM) | PR.AA | Req. 8.4 |
+| [`iam-user-mfa-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/iam-user-mfa-enabled.html) | IAM users have MFA enabled | Section 1 (IAM) | PR.AA | Req. 8.4 |
+| [`iam-password-policy`](https://docs.aws.amazon.com/config/latest/developerguide/iam-password-policy.html) | Account password policy meets minimum strength requirements | Section 1 (IAM) | PR.AA | Req. 8.3 |
+| [`access-keys-rotated`](https://docs.aws.amazon.com/config/latest/developerguide/access-keys-rotated.html) | IAM access keys rotated within a defined window | Section 1 (IAM) | PR.AA | Req. 8.6 |
+| [`s3-bucket-public-read-prohibited`](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-public-read-prohibited.html) | S3 buckets don't allow public read access | Section 2 (Storage) | PR.DS | Req. 3, Req. 9 |
+| [`s3-bucket-public-write-prohibited`](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-public-write-prohibited.html) | S3 buckets don't allow public write access | Section 2 (Storage) | PR.DS | Req. 3, Req. 9 |
+| [`s3-bucket-server-side-encryption-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-server-side-encryption-enabled.html) | S3 buckets encrypt data at rest | Section 2 (Storage) | PR.DS | Req. 3.5 |
+| [`encrypted-volumes`](https://docs.aws.amazon.com/config/latest/developerguide/encrypted-volumes.html) | EBS volumes are encrypted | Section 2 (Storage) | PR.DS | Req. 3.5 |
+| [`rds-storage-encrypted`](https://docs.aws.amazon.com/config/latest/developerguide/rds-storage-encrypted.html) | RDS instances encrypt storage | Section 2 (Storage) | PR.DS | Req. 3.5 |
+| [`cloudtrail-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/cloudtrail-enabled.html) | CloudTrail is enabled account-wide | Section 3 (Logging) | PR.PS, DE.CM | Req. 10 |
+| [`cloud-trail-log-file-validation-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/cloud-trail-log-file-validation-enabled.html) | CloudTrail log integrity validation is on | Section 3 (Logging) | PR.PS | Req. 10.5 |
+| [`vpc-flow-logs-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/vpc-flow-logs-enabled.html) | VPC Flow Logs are capturing network traffic | Section 5 (Networking) | DE.CM | Req. 10 |
+| [`restricted-ssh`](https://docs.aws.amazon.com/config/latest/developerguide/restricted-ssh.html) | No security group allows unrestricted inbound SSH | Section 5 (Networking) | PR.AA, PR.IR | Req. 1 |
+| [`guardduty-enabled-centralized`](https://docs.aws.amazon.com/config/latest/developerguide/guardduty-enabled-centralized.html) | GuardDuty is enabled across the org | Section 4 (Monitoring) | DE.CM | Req. 11.5 |
 
 ### GuardDuty finding categories
 
