@@ -67,4 +67,4 @@ secrets) anywhere outside this demo.
 
 *Part of the [GRC Toolkit](https://github.com/ebohc/grc-toolkit), alongside a PCI DSS v4.0.1 Targeted Risk Analysis template, a SOC 2 / ISO 27001 / PCI DSS control crosswalk, a zero-to-audit-ready program runbook, a PCI DSS Customized Approach playbook, a vulnerability scan coverage reference, and an incident response runbook.*
 
-Victor Eboh, GRC Lead | [LinkedIn](https://www.linkedin.com/in/evictorc/) | [Medium](https://medium.com/@ebohc)
+Victor Eboh, GRC Lead | [LinkedIn](https://www.linkedin.com/in/evictorc/) 
