@@ -17,7 +17,7 @@ against the same demo app published here.
 | [`scans/`](./scans) | The governance-gate scripts run against the demo app at each stage: secret scan (Develop), SAST + SCA (Build), header check (Test), artifact integrity manifest (Release), log anomaly triage (Operate) |
 | [`screenshots/`](./screenshots) | Captured terminal output from each gate actually running against the demo app |
 | [`logs/access-sample.log`](./logs/access-sample.log) | Sample access log with normal traffic mixed with SQLi and path-traversal probes, used by the Operate-stage log anomaly check |
-| [`linkedin-post.md`](./linkedin-post.md) | Companion post for the article |
+
 
 ## How to use it
 
