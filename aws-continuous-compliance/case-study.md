@@ -21,8 +21,11 @@ security-relevant managed rules were added on top of the defaults:
 `restricted-ssh`, and `s3-bucket-public-read-prohibited`, the same five
 covered in this repo's control matrix.
 
-**Screenshot 1** ([`01-config-dashboard-initial.png`](../screenshots/01-config-dashboard-initial.png)):
-the dashboard immediately after enabling, before the first evaluation
+**Screenshot 1**
+
+![Config dashboard immediately after enabling, no data yet](../screenshots/01-config-dashboard-initial.png)
+
+The dashboard immediately after enabling, before the first evaluation
 cycle completes. 0 compliant, 0 noncompliant, "your resources are being
 discovered." This is the normal in-between state right after setup, not
 an error, and it's worth including because most write-ups skip straight
@@ -32,14 +35,20 @@ to a populated dashboard and imply it happens instantly. It doesn't.
 
 Once evaluation completed, one rule came back with a real result.
 
-**Screenshot 2** ([`02-config-rules-list.png`](../screenshots/02-config-rules-list.png)):
+**Screenshot 2**
+
+![Config rules list showing cloudtrail-enabled as noncompliant](../screenshots/02-config-rules-list.png)
+
 `cloudtrail-enabled` shows **1 Noncompliant resource**. `restricted-ssh`
 came back Compliant immediately. The other three showed no result yet,
 meaning either evaluation hadn't finished or there were no applicable
 resources in the account to check.
 
-**Screenshot 3** ([`03-cloudtrail-finding-detail.png`](../screenshots/03-cloudtrail-finding-detail.png)):
-the finding detail page. This is the screenshot worth slowing down on,
+**Screenshot 3**
+
+![cloudtrail-enabled finding detail page with framework mappings](../screenshots/03-cloudtrail-finding-detail.png)
+
+The finding detail page. This is the screenshot worth slowing down on,
 because it does something genuinely useful: it lists every framework
 this single rule maps to, directly in the console, with no extra work.
 NIST SP 800-53r5, CIS v8.0, CIS v7.1, ACSC-ISM, ISO/IEC 27001:2013 Annex
@@ -51,16 +60,22 @@ three Parameters (CloudWatch log group ARN, S3 bucket name, SNS topic
 ARN) all show blank, which is the actual tell for what's wrong, there's
 no CloudTrail configuration for the rule to check against.
 
-**Screenshot 4** ([`04-cloudtrail-resource-view.png`](../screenshots/04-cloudtrail-resource-view.png)):
-viewing the flagged resource directly confirms what's noncompliant is
+**Screenshot 4**
+
+![Resource view confirming the account itself is the noncompliant resource](../screenshots/04-cloudtrail-resource-view.png)
+
+Viewing the flagged resource directly confirms what's noncompliant is
 the AWS account itself (`AWS::::Account`), not a specific service. This
 is an account-level gap, not a partial misconfiguration on one
 resource.
 
 ## Confirming the root cause
 
-**Screenshot 5** ([`05-cloudtrail-service-status.png`](../screenshots/05-cloudtrail-service-status.png)):
-navigating to CloudTrail directly, not through Config, confirms the
+**Screenshot 5**
+
+![CloudTrail landing page showing no trail has ever been created](../screenshots/05-cloudtrail-service-status.png)
+
+Navigating to CloudTrail directly, not through Config, confirms the
 actual state. This is CloudTrail's own "get started" landing page, the
 one it shows when no trail has ever been created. Not a misconfigured
 trail. No trail at all. This is the more common real-world version of
@@ -69,15 +84,21 @@ subtler configuration error.
 
 ## Remediation
 
-**Screenshot 6** ([`06-cloudtrail-create-trail-form.png`](../screenshots/06-cloudtrail-create-trail-form.png)):
+**Screenshot 6**
+
+![CloudTrail Quick Trail Create form](../screenshots/06-cloudtrail-create-trail-form.png)
+
 CloudTrail's Quick Trail Create form, named `management-events`,
 multi-region by default. The console is explicit about cost here too:
 no charge for logging management events themselves, only for the S3
 bucket storing the resulting log files, which for a low-traffic account
 runs to fractions of a cent.
 
-**Screenshot 7** ([`07-cloudtrail-trail-active.png`](../screenshots/07-cloudtrail-trail-active.png)):
-immediately after creation, the trail shows Status: Logging, multi-region:
+**Screenshot 7**
+
+![Trail list showing the new trail with Logging status](../screenshots/07-cloudtrail-trail-active.png)
+
+Immediately after creation, the trail shows Status: Logging, multi-region:
 Yes, with its S3 bucket created and linked. The control is now
 actually in place, not just theoretically fixed.
 
@@ -87,7 +108,10 @@ Config's `cloudtrail-enabled` rule listed its trigger type as periodic,
 evaluating every 24 hours. Rather than waiting a full day, the rule was
 manually re-evaluated after the trail went live.
 
-**Screenshot 8** ([`08-cloudtrail-remediated-compliant.png`](../screenshots/08-cloudtrail-remediated-compliant.png)):
+**Screenshot 8**
+
+![Config rules list showing cloudtrail-enabled now Compliant](../screenshots/08-cloudtrail-remediated-compliant.png)
+
 `cloudtrail-enabled` now shows **Compliant**. `restricted-ssh` and
 `s3-bucket-public-read-prohibited` also show Compliant. Only
 `encrypted-volumes` and `iam-user-mfa-enabled` still show no result,
