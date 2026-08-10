@@ -6,8 +6,8 @@ security-relevant managed rules, and whatever Config actually found was
 walked through, explained, and in one case, fixed, with the compliance
 status change captured before and after.
 
-GuardDuty is covered in this repo's [methodology](../README.md) and
-[Terraform](../terraform) using AWS's own published finding type
+GuardDuty is covered in this repo's [methodology](README.md) and
+[Terraform](terraform) using AWS's own published finding type
 catalog, since the account used for this case study is on a restricted
 plan tier that doesn't yet have GuardDuty access without completing
 additional account verification. Everything below is Config-specific,
@@ -23,7 +23,7 @@ covered in this repo's control matrix.
 
 **Screenshot 1**
 
-![Config dashboard immediately after enabling, no data yet](../screenshots/01-config-dashboard-initial.png)
+![Config dashboard immediately after enabling, no data yet](screenshots/01-config-dashboard-initial.png)
 
 The dashboard immediately after enabling, before the first evaluation
 cycle completes. 0 compliant, 0 noncompliant, "your resources are being
@@ -37,7 +37,7 @@ Once evaluation completed, one rule came back with a real result.
 
 **Screenshot 2**
 
-![Config rules list showing cloudtrail-enabled as noncompliant](../screenshots/02-config-rules-list.png)
+![Config rules list showing cloudtrail-enabled as noncompliant](screenshots/02-config-rules-list.png)
 
 `cloudtrail-enabled` shows **1 Noncompliant resource**. `restricted-ssh`
 came back Compliant immediately. The other three showed no result yet,
@@ -46,7 +46,7 @@ resources in the account to check.
 
 **Screenshot 3**
 
-![cloudtrail-enabled finding detail page with framework mappings](../screenshots/03-cloudtrail-finding-detail.png)
+![cloudtrail-enabled finding detail page with framework mappings](screenshots/03-cloudtrail-finding-detail.png)
 
 The finding detail page. This is the screenshot worth slowing down on,
 because it does something genuinely useful: it lists every framework
@@ -54,7 +54,7 @@ this single rule maps to, directly in the console, with no extra work.
 NIST SP 800-53r5, CIS v8.0, CIS v7.1, ACSC-ISM, ISO/IEC 27001:2013 Annex
 A, PCI-DSS v4.0, and CIS AWS Benchmark v1.4, all from one rule
 evaluation. That's AWS's own tooling confirming the same principle this
-repo's [crosswalk](../../crosswalk) argues from a documentation
+repo's [crosswalk](../crosswalk) argues from a documentation
 standpoint: one control, several frameworks satisfied at once. The
 three Parameters (CloudWatch log group ARN, S3 bucket name, SNS topic
 ARN) all show blank, which is the actual tell for what's wrong, there's
@@ -62,7 +62,7 @@ no CloudTrail configuration for the rule to check against.
 
 **Screenshot 4**
 
-![Resource view confirming the account itself is the noncompliant resource](../screenshots/04-cloudtrail-resource-view.png)
+![Resource view confirming the account itself is the noncompliant resource](screenshots/04-cloudtrail-resource-view.png)
 
 Viewing the flagged resource directly confirms what's noncompliant is
 the AWS account itself (`AWS::::Account`), not a specific service. This
@@ -73,7 +73,7 @@ resource.
 
 **Screenshot 5**
 
-![CloudTrail landing page showing no trail has ever been created](../screenshots/05-cloudtrail-service-status.png)
+![CloudTrail landing page showing no trail has ever been created](screenshots/05-cloudtrail-service-status.png)
 
 Navigating to CloudTrail directly, not through Config, confirms the
 actual state. This is CloudTrail's own "get started" landing page, the
@@ -86,7 +86,7 @@ subtler configuration error.
 
 **Screenshot 6**
 
-![CloudTrail Quick Trail Create form](../screenshots/06-cloudtrail-create-trail-form.png)
+![CloudTrail Quick Trail Create form](screenshots/06-cloudtrail-create-trail-form.png)
 
 CloudTrail's Quick Trail Create form, named `management-events`,
 multi-region by default. The console is explicit about cost here too:
@@ -96,7 +96,7 @@ runs to fractions of a cent.
 
 **Screenshot 7**
 
-![Trail list showing the new trail with Logging status](../screenshots/07-cloudtrail-trail-active.png)
+![Trail list showing the new trail with Logging status](screenshots/07-cloudtrail-trail-active.png)
 
 Immediately after creation, the trail shows Status: Logging, multi-region:
 Yes, with its S3 bucket created and linked. The control is now
@@ -110,7 +110,7 @@ manually re-evaluated after the trail went live.
 
 **Screenshot 8**
 
-![Config rules list showing cloudtrail-enabled now Compliant](../screenshots/08-cloudtrail-remediated-compliant.png)
+![Config rules list showing cloudtrail-enabled now Compliant](screenshots/08-cloudtrail-remediated-compliant.png)
 
 `cloudtrail-enabled` now shows **Compliant**. `restricted-ssh` and
 `s3-bucket-public-read-prohibited` also show Compliant. Only
@@ -133,6 +133,6 @@ proven closed.
 
 ---
 
-*Part of the [AWS Continuous Compliance Monitoring](../README.md) reference, in the [GRC Toolkit](https://github.com/ebohc/grc-toolkit).*
+*Part of the [AWS Continuous Compliance Monitoring](README.md) reference, in the [GRC Toolkit](https://github.com/ebohc/grc-toolkit).*
 
 Victor Eboh, GRC Lead | [LinkedIn](https://www.linkedin.com/in/evictorc/)
